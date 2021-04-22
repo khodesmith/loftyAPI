@@ -1,4 +1,7 @@
 const model = require('./Model');
+const express = require("express")
+const Router = express.Router();
+
 
 exports.getAllEntry = async(req, res)=>{
     const newData = await model.find();

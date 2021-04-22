@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const port = process.env.port || 5454;
 const cors = require('cors');
-// const view = require('./Component/View')
+const view = require('./Component/Controller')
 const app = express();
 // const OFFLINE_DB = "mongodb://localhost/money";
 const ONLINE_DB = 
@@ -18,7 +18,7 @@ mongoose.connect(ONLINE_DB,{
     console.log(`Database is active`)
 })
 app.use(express.json());
-app.use("/", require("./Component/Controller"))
+app.use("/", view);
 app.use(cors())
 
 
