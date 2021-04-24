@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require("mongoose");
 const port = process.env.PORT || 5454;
@@ -5,8 +6,7 @@ const cors = require('cors');
 const view = require('./Component/Controller')
 const app = express();
 // const OFFLINE_DB = "mongodb://localhost/money";
-const ONLINE_DB = 
-"mongodb+srv://AzeezLSETF:sunlarry...@cluster0.in8ws.mongodb.net/money?retryWrites=true&w=majority"
+const ONLINE_DB = process.env.MONGO_DB_CONNECTION_STRING;
 
 mongoose.connect(ONLINE_DB,{
     useCreateIndex: true,
@@ -23,5 +23,5 @@ app.use(cors())
 
 
 app.listen(port,()=>{
-    console.log(`port is listening`);
+    console.log(`port is listening ${port}`);
 })
