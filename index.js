@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require("mongoose");
-const port = process.env.port || 5454;
+const port = process.env.PORT || 5454;
 const cors = require('cors');
 const view = require('./Component/Controller')
 const app = express();
